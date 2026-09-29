@@ -88,29 +88,11 @@ When the same drug qualifies under multiple tiers, assign the highest (lowest-nu
 
 ---
 
-## Therapy Classification Against MOAlmanac Ground Truth
-
-After therapy lists are generated, they are classified against the MOAlmanac ground truth using `comparative_study/classify_therapies.py`.
-
-Each therapy in the ground truth is categorized as:
-
-| Category | Definition |
-|---|---|
-| `All Present as Tier 1` | All ground-truth therapies appear in ORCHESTRA output without a level label (i.e., classified as FDA-approved) |
-| `All Present as Different Tier` | All ground-truth therapies appear but with a level label (Level 2/3/4) |
-| `All Absent` | No ground-truth therapies appear in ORCHESTRA output |
-| `Partially Present` | Some ground-truth therapies present, some absent |
-| `No Therapies Listed` | ORCHESTRA output is empty |
-
-Matching is case-insensitive on individual drug name tokens.
-
----
-
 ## Models Used in Comparative Study
 
 | System | Model | Prompt Used |
 |---|---|---|
-| ORCHESTRA | Claude Sonnet 4 (`global.anthropic.claude-sonnet-4-6`) | Prompt A (applied to generated summary) |
-| GPT-4o baseline | GPT-4o (`gpt-4o`) via OpenAI API | Prompt B (direct variant query) |
+| ORCHESTRA | Claude Sonnet 4.5 (`global.anthropic.claude-sonnet-4-6`) | Prompt A (applied to generated summary) |
+| GPT-4o baseline | GPT-4o (`gpt-4o`) via OpenAI API | Prompt B |
 | Claude Opus 4.5 baseline | `global.anthropic.claude-opus-4-5-20251101-v1:0` | Prompt B |
-| Claude Sonnet 4 baseline | `global.anthropic.claude-sonnet-4-6` | Prompt B |
+
