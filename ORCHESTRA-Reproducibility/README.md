@@ -1,8 +1,6 @@
-# ORCHESTRA: Reproducibility Package
+# ORCHESTRA
 
 **Oncology Research Characterization and Harmonization for Evidence-Supported Treatment Recommendations and Annotation**
-
-This repository accompanies the manuscript submitted to *JCO Clinical Cancer Informatics* and provides all code, prompts, and configuration details needed to reproduce the system described in the paper.
 
 ---
 
@@ -93,8 +91,8 @@ ORCHESTRA is a three-step pipeline:
 |---|---|---|---|---|
 | Literature Filtering (Step 2) | Claude Sonnet 4.5 | `global.anthropic.claude-sonnet-4-5-20250929-v1:0` | default | 6000 |
 | Clinical Summary (Step 3) | Claude Opus 4.5 | `global.anthropic.claude-opus-4-5-20251101-v1:0` | default | 4000 |
-| Therapy Extraction (Comparative) | Claude Sonnet 4 | `global.anthropic.claude-sonnet-4-6` | 0 | 2000 |
-| LLM-as-a-Judge | Claude Sonnet 4 | `global.anthropic.claude-sonnet-4-6` | 0.0 | 4096 |
+| Therapy Extraction (Comparative) | Claude Sonnet 4.5 | `global.anthropic.claude-sonnet-4-5-20250929-v1:0` | 0 | 2000 |
+| LLM-as-a-Judge | Claude Sonnet 4.5 | `global.anthropic.claude-sonnet-4-5-20250929-v1:0` | 0.0 | 4096 |
 
 All models accessed via **AWS Bedrock** (`us-east-1` region) using the `bedrock-runtime` API.
 
@@ -129,7 +127,7 @@ Variants are normalized before querying each database. Full details in `pipeline
 
 Therapy tiers are assigned by the LLM during the therapy extraction step (see `prompts/therapy_extraction_prompt.md`):
 
-- **Tier 1 (no label)**: FDA-approved for this specific variant and cancer type indication
+- **Tier 1**: FDA-approved for this specific variant and cancer type indication
 - **Level 2**: Strong clinical evidence (Phase II/III trials, NCCN guidelines) but not FDA-approved for this exact indication
 - **Level 3**: Investigational (early-phase trials, basket trials, case series)
 - **Level 4**: Preclinical or case-report-only evidence
@@ -168,6 +166,3 @@ AWS credentials with Bedrock access to `us-east-1` are required to run the LLM s
 
 ---
 
-## Citation
-
-> [Authors]. ORCHESTRA: An AI-Assisted Variant Annotation System for Molecular Tumor Boards. *JCO Clinical Cancer Informatics*, 2025.
