@@ -3,7 +3,7 @@
 **Pipeline step**: Step 2 (`script3_filter.py`)  
 **Model**: Claude Sonnet 4.5 (`global.anthropic.claude-sonnet-4-5-20250929-v1:0`)  
 **Max tokens**: 6000  
-**Temperature**: Bedrock default (not set)
+**Temperature**: 0
 
 This step reads each paper retrieved from PubMed/PMC and decides whether it contains clinically relevant information for the variant. Two prompt variants are used depending on whether the paper has only an abstract or a full PMC text.
 
