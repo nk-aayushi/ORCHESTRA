@@ -90,7 +90,7 @@ python run_claude_batch_benchmark.py --parse
 
 **Models submitted**:
 - Claude Opus 4.5: `global.anthropic.claude-opus-4-5-20251101-v1:0`
-- Claude Sonnet 4: `global.anthropic.claude-sonnet-4-6`
+
 
 **S3 bucket**: `orchestra-claude-benchmark`  
 **IAM role**: Must have S3 read/write and Bedrock InvokeModel permissions
@@ -144,8 +144,4 @@ Each ground-truth therapy is then looked up in the system output:
 | `Matched_Other_Tier` | Ground-truth therapies found at other tiers |
 | `Not_Found` | Ground-truth therapies absent from output |
 
----
 
-## Rare Variant Sub-Study
-
-The `rare/` directory in the main repository contains a separate analysis of 12 rare/atypical variants not well-represented in MOAlmanac. For each variant, ORCHESTRA summaries were generated and therapy recommendations were compared against Claude Opus 4.5, Claude Sonnet 4, and GPT-4o using the same Prompt B (direct query). See `rare/run_rare_benchmark.py` in the main repository.
