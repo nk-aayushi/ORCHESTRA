@@ -1,6 +1,6 @@
 # Comparative Study
 
-This directory contains the scripts used to compare ORCHESTRA's therapy recommendations against the MOAlmanac ground truth and against direct LLM baselines (GPT-4o, Claude Opus 4.5, Claude Sonnet 4).
+This directory contains the scripts used to compare ORCHESTRA's therapy recommendations against the MOAlmanac ground truth and against direct LLM baselines (GPT-4o, Claude Opus 4.5).
 
 ---
 
@@ -17,7 +17,6 @@ The comparative study evaluates whether ORCHESTRA's evidence-grounded therapy re
 | ORCHESTRA | Full pipeline (database retrieval → LLM filtering → summary → therapy extraction) |
 | GPT-4o baseline | Direct query to GPT-4o with variant + cancer type, no retrieved evidence |
 | Claude Opus 4.5 baseline | Same direct query, Claude Opus 4.5 via AWS Bedrock |
-| Claude Sonnet 4 baseline | Same direct query, Claude Sonnet 4 via AWS Bedrock |
 
 The baseline systems represent what LLMs know from parametric knowledge alone, without any retrieval augmentation.
 
