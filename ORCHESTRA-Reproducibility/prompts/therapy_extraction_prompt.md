@@ -62,6 +62,25 @@ Applied directly to the variant without any retrieved evidence. This is the same
 
 ```
 For the variant {gene} {protein_change} in {cancer_type}, what are the recommended targeted therapies or treatments? For each therapy, include the level of evidence in brackets (e.g. Level 1, Level 2, Level 3, Level 4) based on FDA approval, clinical guidelines, and clinical evidence strength. First provide a detailed explanation, then on the last line write 'THERAPIES: ' followed by a comma-separated list of therapy names each with their level in brackets, e.g. 'DrugA (Level 1), DrugB (Level 3)'.
+
+Tiering rules — assign exactly one level to each therapy:
+- Level 1: FDA-approved specifically for this variant AND this cancer type. No label suffix needed — list the drug name only.
+- Level 2: Strong clinical evidence but NOT FDA-approved for this exact variant+cancer combination. This includes:
+  * FDA-approved for this variant in a DIFFERENT cancer type (i.e., tumor-agnostic or other-indication approval)
+  * Phase II or Phase III trial data showing meaningful clinical benefit
+  * NCCN Category 1 or 2A recommendation for this variant in this cancer type
+  Append "(Level 2)" after the drug name.
+- Level 3: Investigational or emerging evidence only. This includes:
+  * Phase I trials or early-phase basket trials
+  * Retrospective case series (≥3 patients)
+  * Expert consensus or NCCN Category 2B/3 recommendation
+  Append "(Level 3)" after the drug name.
+- Level 4: Preclinical or anecdotal evidence only. This includes:
+  * In vitro or in vivo (animal) studies only
+  * Single case reports (1–2 patients)
+  * Mechanistic inference without clinical data
+  Append "(Level 4)" after the drug name.
+
 ```
 
 **Output format**: Free-text explanation followed by a structured last line:
