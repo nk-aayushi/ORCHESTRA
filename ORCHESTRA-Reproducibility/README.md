@@ -27,7 +27,7 @@ ORCHESTRA-Reproducibility/
 │   ├── run_claude_batch_benchmark.py
 │   └── classify_therapies.py
 │
-├── llm_judge_criteria/         # 12-criterion LLM judge: model comparison across 98 cases (Section 2.5)
+├── llm_judge_criteria/         # 9-criterion LLM judge: model comparison across 98 cases (Section 2.5)
 │   ├── README.md               # Full rubric, prompts, verdict definitions
 │   ├── main.py
 │   ├── judge.py
@@ -55,7 +55,7 @@ The paper uses two complementary LLM-as-a-Judge frameworks:
 
 | Directory | Purpose | Criteria | Output |
 |---|---|---|---|
-| `llm_judge_criteria/` | Model comparison across all 98 cases — reports PASS/minor/major rates per clinical dimension | 12 criteria (variant identification, biological interpretation, clinical significance, therapeutic recommendations, evidence integration, clinical reasoning, resistance interpretation, clinical trials, evidence levels, safety, hallucinations, report organization) + overall quality (Excellent/Good/Acceptable/Poor/Unsafe) | Per-case JSON + master CSV |
+| `llm_judge_criteria/` | Model comparison across all 98 cases — reports PASS/minor/major rates per clinical dimension | 12 criteria (variant identification, biological interpretation, clinical significance, evidence integration, clinical reasoning, resistance interpretation, clinical trials, safety, report organization) + overall quality (Excellent/Good/Acceptable/Poor/Unsafe) | Per-case JSON + master CSV |
 | `llm_judge/` | Human-vs-LLM agreement analysis — compares automated scores to human expert ratings | 4 numeric scores (hallucination, completeness, usefulness, grounding), each 1–5 | Per-case JSON + master CSV |
 
 ---
@@ -74,10 +74,10 @@ ORCHESTRA is a three-step pipeline:
 
 | Database | Version / Access Date | API Endpoint |
 |---|---|---|
-| ClinVar | Accessed via NCBI E-utilities; no fixed release — queries reflect live database state at time of run. Study cohort queried **November–December 2024**. | `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/` |
-| CIViC | Accessed via GraphQL API; no versioned releases — queries reflect live database state. Study cohort queried **November–December 2024**. | `https://civicdb.org/api/graphql` |
-| OncoKB | Accessed via REST API. Data version returned per-query in the `dataVersion` field of each JSON response. Study cohort queried **November–December 2024**. | `https://www.oncokb.org/api/v1/` |
-| PubMed / PMC | Accessed via NCBI E-utilities. No fixed snapshot — reflects PubMed index at time of query. Study cohort queried **November–December 2024**. | `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/` |
+| ClinVar | Accessed via NCBI E-utilities; no fixed release — queries reflect live database state at time of run. Study cohort queried **January-March 2026**. | `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/` |
+| CIViC | Accessed via GraphQL API; no versioned releases — queries reflect live database state. Study cohort queried **January-March 2026**. | `https://civicdb.org/api/graphql` |
+| OncoKB | Accessed via REST API. Data version returned per-query in the `dataVersion` field of each JSON response. Study cohort queried **January-March 2026**. | `https://www.oncokb.org/api/v1/` |
+| PubMed / PMC | Accessed via NCBI E-utilities. No fixed snapshot — reflects PubMed index at time of query. Study cohort queried **January-March 2026**. | `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/` |
 | Mutalyzer | Used for HGVS normalization (DNA ↔ protein conversion). Accessed via REST API. | `https://mutalyzer.nl/api/` |
 | MANE Select | MANE.GRCh38.v1.5 (used as reference transcript source for Mutalyzer queries). | Bundled in `pipeline/helper_scripts/` |
 
