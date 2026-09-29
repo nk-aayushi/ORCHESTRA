@@ -1,7 +1,7 @@
 # Therapy Extraction Prompt
 
 **Pipeline step**: Comparative study (`run_batch.py`, `comparative_study/run_baseline_gpt4o.py`, `comparative_study/run_claude_batch_benchmark.py`)  
-**Model**: Claude Sonnet 4 (`global.anthropic.claude-sonnet-4-6`) for ORCHESTRA extraction; GPT-4o (`gpt-4o`) for baseline  
+**Model**: Claude Sonnet 4.5 (`global.anthropic.claude-sonnet-4-5-20250929-v1:0`) for ORCHESTRA extraction; GPT-4o (`gpt-4o`) for baseline  
 **Max tokens**: 2000 (ORCHESTRA extraction), 4000 (baseline benchmark)  
 **Temperature**: 0
 
@@ -92,7 +92,7 @@ When the same drug qualifies under multiple tiers, assign the highest (lowest-nu
 
 | System | Model | Prompt Used |
 |---|---|---|
-| ORCHESTRA | Claude Sonnet 4.5 (`global.anthropic.claude-sonnet-4-6`) | Prompt A (applied to generated summary) |
+| ORCHESTRA | Claude Sonnet 4.5 (`global.anthropic.claude-sonnet-4-5-20250929-v1:0`) | Prompt A (applied to generated summary) |
 | GPT-4o baseline | GPT-4o (`gpt-4o`) via OpenAI API | Prompt B |
 | Claude Opus 4.5 baseline | `global.anthropic.claude-opus-4-5-20251101-v1:0` | Prompt B |
 
