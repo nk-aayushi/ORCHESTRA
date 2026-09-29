@@ -3,7 +3,7 @@
 **Pipeline step**: Step 3 (`generate_summary.py`)  
 **Model**: Claude Opus 4.5 (`global.anthropic.claude-opus-4-5-20251101-v1:0`)  
 **Max tokens**: 4000  
-**Temperature**: Bedrock default (not set)
+**Temperature**: 0
 
 This prompt instructs the LLM to synthesize all retained database evidence into a structured clinical report. The LLM is explicitly constrained to use only the provided data and not add outside knowledge.
 
