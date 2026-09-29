@@ -4,8 +4,8 @@ Claude Batch Benchmark: Compare Claude models against MOAlmanac truth set.
 Uses the EXACT same prompt as baseline_chatgpt_test.py, submitted via
 AWS Bedrock Batch Inference for 3 Claude models:
 - Claude Opus 4.5
-- Claude Opus 4
-- Claude Sonnet 4
+
+
 
 Steps:
 1. Generate JSONL batch input files (one per model, same prompts)
@@ -40,7 +40,7 @@ SERVICE_ROLE_ARN = "arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/NCCNPdfParse"
 
 MODELS = {
     "claude-opus-4.5": "global.anthropic.claude-opus-4-5-20251101-v1:0",
-    "claude-sonnet-4": "global.anthropic.claude-sonnet-4-6",
+    
 }
 
 # Exact same prompt from baseline_chatgpt_test.py
